@@ -12,7 +12,7 @@ export default class RetrieveACarRental {
         this.carRentalReadRepository = carRentalReadRepository;
     }
 
-    async execute(): Promise<CarRentalDTO> {
-
+    async execute(query: RetrieveACarRentalQuery): Promise<CarRentalDTO> {
+        return (await this.carRentalReadRepository.read(query.id)).toDTO();
     }
 }
